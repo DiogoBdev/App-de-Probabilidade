@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Select, SelectItem } from '@/components/ui/select';
-import { Table, TableRow, TableCell, TableHead, TableBody } from '@/components/ui/table';
+import React, { useState } from 'react';
+import { Card, CardContent, CardHeader } from './ui/card';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
+import { Select, SelectItem } from './ui/select';
+import { Table, TableRow, TableCell, TableHead, TableBody } from './ui/table';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { v4 as uuidv4 } from 'uuid';
 
