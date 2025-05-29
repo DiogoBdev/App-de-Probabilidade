@@ -6,6 +6,7 @@ import { Select, SelectItem } from './ui/select';
 import { Table, TableRow, TableCell, TableHead, TableBody } from './ui/table';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { v4 as uuidv4 } from 'uuid';
+import './App.css';
 
 const RiskAssessmentSystem = () => {
     const [equipment, setEquipment] = useState('');
@@ -51,35 +52,45 @@ const RiskAssessmentSystem = () => {
 
     return (
         <div className="container mx-auto p-4">
+            <h1>Cálculo de Risco NR-12</h1>
+            <p className="description">Informe os parâmetros para calcular o risco de acordo com as normas da NR-12.</p>
             <Card className="mb-4">
                 <CardHeader>Cadastro de Equipamento</CardHeader>
-                <CardContent>
-                    <Input placeholder="Nome do Equipamento" value={equipment} onChange={(e) => setEquipment(e.target.value)} className="mb-2" />
-                    <Select value={severity} onChange={(e) => setSeverity(parseInt(e.target.value))} className="mb-2">
+                <CardContent >
+                    <Input style={{ margin: '10px', fontSize: '20px', border: '1px solid green' }}
+                           placeholder="Nome do Equipamento"
+                           value={equipment}
+                           onChange={(e) => setEquipment(e.target.value)}
+                           className="input-field"
+                    />
+
+                   <br></br>
+                    <Select style={{ margin: '10px' }} value={severity} onChange={(e) => setSeverity(parseInt(e.target.value))} className="mb-2">
                         <SelectItem value="1">Leve (1)</SelectItem>
                         <SelectItem value="2">Moderado (2)</SelectItem>
                         <SelectItem value="3">Grave (3)</SelectItem>
                         <SelectItem value="4">Fatal (4)</SelectItem>
                     </Select>
-                    <Select value={frequency} onChange={(e) => setFrequency(parseInt(e.target.value))} className="mb-2">
+                    <br></br>
+                    <Select style={{ margin: '10px' }} value={frequency} onChange={(e) => setFrequency(parseInt(e.target.value))} className="mb-2">
                         <SelectItem value="1">Raro (1)</SelectItem>
                         <SelectItem value="2">Ocasional (2)</SelectItem>
                         <SelectItem value="3">Frequente (3)</SelectItem>
                         <SelectItem value="4">Muito Frequente (4)</SelectItem>
                     </Select>
-                    <Select value={probability} onChange={(e) => setProbability(parseInt(e.target.value))} className="mb-2">
+                    <Select style={{ margin: '10px' }} value={probability} onChange={(e) => setProbability(parseInt(e.target.value))} className="mb-2">
                         <SelectItem value="1">Muito Improvável (1)</SelectItem>
                         <SelectItem value="2">Improvável (2)</SelectItem>
                         <SelectItem value="3">Possível (3)</SelectItem>
                         <SelectItem value="4">Provável (4)</SelectItem>
                     </Select>
-                    <Select value={avoidability} onChange={(e) => setAvoidability(parseInt(e.target.value))} className="mb-4">
+                    <Select style={{ margin: '10px' }} value={avoidability} onChange={(e) => setAvoidability(parseInt(e.target.value))} className="mb-4">
                         <SelectItem value="1">Fácil de evitar (1)</SelectItem>
                         <SelectItem value="2">Difícil de evitar (2)</SelectItem>
                         <SelectItem value="3">Muito difícil de evitar (3)</SelectItem>
                         <SelectItem value="4">Impossível de evitar (4)</SelectItem>
                     </Select>
-                    <Button onClick={calculateRisk}>Calcular Risco</Button>
+                    <Button style={{ margin: '5px' }} onClick={calculateRisk}>Calcular Risco</Button>
                 </CardContent>
             </Card>
 
